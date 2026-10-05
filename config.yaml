@@ -1,0 +1,37 @@
+name: Garden Diary
+version: "0.1.0"
+slug: garden_diary
+description: Sowing, planting and harvest diary for the veggie beds and fruit trees, with reminders driven by the greenhouse, seed-tray and outside sensors.
+arch:
+  - amd64
+  - aarch64
+startup: application
+boot: auto
+init: false
+ingress: true
+ingress_port: 8099
+panel_icon: mdi:sprout
+panel_title: Garden
+panel_admin: false
+homeassistant_api: true
+hassio_api: true
+options:
+  office_temperature: sensor.air_temp_humidity_zigbee_temperature
+  office_humidity: sensor.air_temp_humidity_zigbee_humidity
+  heat_pad_soil: sensor.soil_probe_temperature
+  greenhouse_temperature: sensor.5179_3629_temperature
+  greenhouse_humidity: sensor.5179_3629_humidity
+  outside_temperature: sensor.outside_temperature_filtered
+  outside_reference: sensor.metservice_temperature
+  weather_entity: weather.home
+  areas: "Big, Middle, L, Backyard, Orchard, Grove"
+schema:
+  office_temperature: str
+  office_humidity: str?
+  heat_pad_soil: str
+  greenhouse_temperature: str
+  greenhouse_humidity: str?
+  outside_temperature: str
+  outside_reference: str?
+  weather_entity: str?
+  areas: str
