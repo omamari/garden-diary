@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "garden-diary",
+      "runtimeExecutable": "sh",
+      "runtimeArgs": ["-c", "mkdir -p local && GARDEN_DB=local/garden.db GARDEN_PHOTOS=local/photos GARDEN_OPTIONS=local/options.json GARDEN_PORT=8099 TZ=Pacific/Auckland exec python3 app/server.py"],
+      "port": 8099
+    }
+  ]
+}
