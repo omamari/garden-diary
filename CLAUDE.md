@@ -10,7 +10,13 @@ Local Home Assistant add-on (slug `local_garden_diary`, sidebar "Garden") for Da
 - `config.yaml`, `build.yaml`, `Dockerfile`, `run.sh`: add-on packaging
 
 ## Deploy
-Tar this folder over SSH into `/local_apps/garden_diary`, then `ha store reload; ha apps rebuild local_garden_diary`.
+From `~/home-assistant`:
+
+```bash
+COPYFILE_DISABLE=1 tar czf - --exclude .git --exclude __pycache__ --exclude 'plan-draft.*' garden-diary | ssh -o IdentitiesOnly=yes -i ~/.ssh/ha-finance root@192.168.1.108 'tar xzf - -C /local_apps/garden_diary --strip-components=1 && ha store reload && ha apps rebuild local_garden_diary'
+```
+
+`COPYFILE_DISABLE=1` stops macOS adding `._` files to the archive. The panel is at http://homeassistant.local:8123/local_garden_diary (not `/hassio/ingress/...`).
 
 ## Gotchas
 - The base image's s6 init strips environment variables: `run.sh` reads `SUPERVISOR_TOKEN` and `TZ` from `/run/s6/container_environment/`, and the Dockerfile sets `S6_KEEP_ENV=1`.

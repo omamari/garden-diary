@@ -46,7 +46,7 @@ function renderAll() { renderHeader(); renderAreas(); renderTasks(); renderDiary
 function renderHeader() {
   const d = new Date(S.today + 'T12:00:00');
   const seasonName = ['winter','winter','spring','spring','spring','summer','summer','summer','autumn','autumn','autumn','winter'][(d.getMonth()+6)%12];
-  $('dateLabel').textContent = `${d.toLocaleDateString('en-NZ',{weekday:'short', day:'numeric', month:'short'})} · ${seasonName} · ${S.season}`;
+  $('dateLabel').innerHTML = `${d.toLocaleDateString('en-NZ',{weekday:'short', day:'numeric', month:'short'})} · ${seasonName}<span class="yr"> · ${S.season}</span>`;
 }
 function spark(s, tone) {
   if (!s || s.length < 2) return '';

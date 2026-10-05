@@ -30,8 +30,10 @@ h3{font-size:1rem;font-weight:700}
 .eyebrow{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
 .muted{color:var(--muted)}
 .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
-header.top{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);padding:14px 0 10px;display:flex;align-items:baseline;justify-content:space-between;z-index:5}
-header.top .date{font-family:var(--mono);font-size:.8rem;color:var(--muted)}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);padding:14px 0 10px;z-index:5}
+header.top .toprow{display:flex;align-items:baseline;justify-content:space-between;gap:10px;white-space:nowrap}
+header.top .date{font-family:var(--mono);font-size:.75rem;color:var(--muted)}
+@media (max-width:400px){header.top .date .yr{display:none}}
 
 nav.tabs{position:fixed;left:0;right:0;bottom:0;background:var(--surface);border-top:1px solid var(--line);display:flex;justify-content:space-around;padding:6px 8px calc(6px + env(safe-area-inset-bottom,0px));z-index:10}
 nav.tabs button{background:none;border:0;color:var(--muted);font:600 .72rem var(--body);padding:6px 10px;border-radius:10px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px}
@@ -61,7 +63,7 @@ section.screen.on{display:flex}
 .task .why{font-size:.8rem;color:var(--muted);margin-top:2px}
 .task .why b{font-family:var(--mono);font-weight:600;color:var(--fg)}
 .task button{align-self:center}
-.task .late{font-size:.72rem;color:var(--warn);font-weight:600;margin-left:6px}
+.task .late{display:inline-block;white-space:nowrap;font-size:.72rem;color:var(--warn);font-weight:600;margin-left:6px}
 
 button.pill{font:600 .78rem var(--body);background:var(--leaf);color:#fff;border:0;border-radius:999px;padding:7px 12px;cursor:pointer;white-space:nowrap}
 button.pill.ghost{background:transparent;color:var(--leaf);border:1px solid var(--leaf)}
